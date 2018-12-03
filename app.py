@@ -28,7 +28,7 @@ api.add_resource(StoreList, '/stores')
 api.add_resource(UserRegister, '/register')
 
 @app.route('/teste', methods=['POST'])
-def testar(teste):
+def testar():
     resposta = "oi, meu teste"
     return resposta, 201
 

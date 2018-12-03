@@ -2,10 +2,10 @@
 # import glob
 import dlib
 # import cv2
-# import numpy as np
+import numpy as np
 # import PIL
 # from PIL import Image
-# import base64
+import base64
 
 import classes.constantes as consts
 
@@ -83,30 +83,30 @@ class DetectorFace:
 
 #             np.save("{}{}/treinamento/descritores.{}.npy".format(consts.DIR_EVE, id_eve, idx_imagem), descritores_faciais)
 
-#     def buscar_imagens(self, id_usu, id_evento):
-#         descritores_usu = np.load("{}{}/treinamento/descritores.npy".format(consts.DIR_USU, id_usu))
-#         lista_descritores = glob.glob(os.path.join("{}{}/treinamento".format(consts.DIR_EVE, id_evento), "*npy"))
-#         limiar = 0.5
-#         resultado = []
+    def buscar_imagens(self, id_usu, id_evento):
+        descritores_usu = np.load("{}{}/treinamento/descritores.npy".format(consts.DIR_USU, id_usu))
+        lista_descritores = glob.glob(os.path.join("{}{}/treinamento".format(consts.DIR_EVE, id_evento), "*npy"))
+        limiar = 0.5
+        resultado = []
 
-#         for i, descritor in enumerate(lista_descritores):
+        for i, descritor in enumerate(lista_descritores):
 
-#             descritor_eve = np.load(descritor)
+            descritor_eve = np.load(descritor)
 
-#             if descritor_eve.all() == None:
-#                 continue
+            if descritor_eve.all() == None:
+                continue
 
-#             for d in descritor_eve:
-#                 distancias = np.linalg.norm(d - descritores_usu, axis=1)
-#                 minimo = np.argmin(distancias)
-#                 distancia_minima = distancias[minimo]
+            for d in descritor_eve:
+                distancias = np.linalg.norm(d - descritores_usu, axis=1)
+                minimo = np.argmin(distancias)
+                distancia_minima = distancias[minimo]
 
-#                 if distancia_minima <= limiar:
-#                     idx_foto = descritor.split(".")[1]
-#                     imagem = "{}{}/imagens_mini/{}.jpg".format(consts.DIR_EVE, id_evento, idx_foto)
+                if distancia_minima <= limiar:
+                    idx_foto = descritor.split(".")[1]
+                    imagem = "{}{}/imagens_mini/{}.jpg".format(consts.DIR_EVE, id_evento, idx_foto)
                     
-#                     with open(imagem, "rb") as image_file:
-#                         encoded_string = base64.b64encode(image_file.read())
-#                     resultado.append("{}".format(encoded_string))
+                    with open(imagem, "rb") as image_file:
+                        encoded_string = base64.b64encode(image_file.read())
+                    resultado.append("{}".format(encoded_string))
 
-#         return resultado           
+        return resultado           

@@ -9,4 +9,4 @@ opencv-python
 dlib
 Pillow
 Numpy
-base64
+Base64

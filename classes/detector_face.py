@@ -1,29 +1,26 @@
 # import os
 # import glob
-# import dlib
+import dlib
 # import cv2
 # import numpy as np
 # import PIL
 # from PIL import Image
 # import base64
 
-# import classes.constantes as consts
+import classes.constantes as consts
 
 class DetectorFace:
-    
-    def teste(self):
-        print("teste")
 
-#     def __init__(self):
-#         self.detector_face = dlib.get_frontal_face_detector()
-#         self.detector_pontos = dlib.shape_predictor(
-#             "{}dlib/shape_predictor_68_face_landmarks.dat".format(consts.DIR_REC))
-#         self.reconhecimento_facial = dlib.face_recognition_model_v1(
-#             "{}dlib/dlib_face_recognition_resnet_model_v1.dat".format(consts.DIR_REC))
+    def __init__(self):
+        self.detector_face = dlib.get_frontal_face_detector()
+        self.detector_pontos = dlib.shape_predictor(
+            "{}dlib/shape_predictor_68_face_landmarks.dat".format(consts.DIR_REC))
+        self.reconhecimento_facial = dlib.face_recognition_model_v1(
+            "{}dlib/dlib_face_recognition_resnet_model_v1.dat".format(consts.DIR_REC))
 
-#         self.indice = {}
-#         self.idx = 0
-#         self.descritores_faciais = None
+        self.indice = {}
+        self.idx = 0
+        self.descritores_faciais = None
 
 #     def treinar_usuario(self, id_usu):
 #         for arquivo in glob.glob(os.path.join("{}{}".format(consts.DIR_USU, id_usu), "*.png")):

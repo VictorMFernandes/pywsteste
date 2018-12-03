@@ -4,7 +4,7 @@ Flask-JWT
 Flask-SQLAlchemy
 uwsgi
 psycopg2
-CMake 
+CMake
 opencv-python
 dlib
 Pillow

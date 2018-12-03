@@ -1,9 +1,9 @@
-# import os
-# import glob
+import os
+import glob
 import dlib
-# import cv2
+import cv2
 import numpy as np
-# import PIL
+import PIL
 # from PIL import Image
 import base64
 

@@ -6,6 +6,7 @@ uwsgi
 psycopg2
 CMake
 opencv-python
+cv2
 dlib
 Pillow
 Numpy

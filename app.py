@@ -31,7 +31,7 @@ api.add_resource(UserRegister, '/register')
 def testar():
     request_data = request.get_json()
     resposta = request_data['teste']
-    return resposta, 201
+    return jsonify(resposta), 201
 
 if __name__ == '__main__':
     from db import db

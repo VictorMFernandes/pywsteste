@@ -9,7 +9,10 @@
 
 # import classes.constantes as consts
 
-# class Detector_Face:
+class Detector_Face:
+    
+    def teste(self):
+        print("teste")
 
 #     def __init__(self):
 #         self.detector_face = dlib.get_frontal_face_detector()
@@ -109,5 +112,4 @@
 #                         encoded_string = base64.b64encode(image_file.read())
 #                     resultado.append("{}".format(encoded_string))
 
-#         return resultado
-                
+#         return resultado           

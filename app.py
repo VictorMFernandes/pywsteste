@@ -30,7 +30,9 @@ api.add_resource(UserRegister, '/register')
 @app.route('/teste', methods=['POST'])
 def testar():
     request_data = request.get_json()
-    resposta = request_data['teste']
+    resposta = {
+        "teste": request_data['teste']
+    }
     return jsonify(resposta), 201
 
 if __name__ == '__main__':

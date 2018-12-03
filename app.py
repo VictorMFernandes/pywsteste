@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask_restful import Api
 from flask_jwt import JWT
 
@@ -27,9 +27,10 @@ api.add_resource(StoreList, '/stores')
 
 api.add_resource(UserRegister, '/register')
 
-@app.route('/teste/<string:teste>', methods=['POST'])
-def testar(teste):
-    resposta = teste
+@app.route('/teste', methods=['POST'])
+def testar():
+    request_data = request.get_json()
+    resposta = request_data['teste']
     return resposta, 201
 
 if __name__ == '__main__':

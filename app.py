@@ -2,8 +2,6 @@ from flask import Flask, jsonify, request, abort
 
 import os
 
-from classes.usuario import Usuario
-
 app = Flask(__name__)
 
 app.config['DEBUG'] = True

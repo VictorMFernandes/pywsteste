@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request, abort
+import classes.constantes as consts
 
 import os
 

@@ -1,8 +1,6 @@
 import os
 
 from flask import Flask, jsonify, request
-from flask_restful import Api
-from flask_jwt import JWT
 
 from security import authenticate, identity
 from resources.user import UserRegister

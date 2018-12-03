@@ -22,35 +22,35 @@ class Detector_Face:
         self.idx = 0
         self.descritores_faciais = None
 
-    def treinar_usuario(self, id_usu):
-        for arquivo in glob.glob(os.path.join("{}{}".format(consts.DIR_USU, id_usu), "*.png")):
-            imagem = cv2.imread(arquivo)
+    # def treinar_usuario(self, id_usu):
+    #     for arquivo in glob.glob(os.path.join("{}{}".format(consts.DIR_USU, id_usu), "*.png")):
+    #         imagem = cv2.imread(arquivo)
             
-            faces_detectadas = self.detector_face(imagem, 1)
-            qtd_faces_detectadas = len(faces_detectadas)
+    #         faces_detectadas = self.detector_face(imagem, 1)
+    #         qtd_faces_detectadas = len(faces_detectadas)
 
-            if qtd_faces_detectadas > 1:
-                print("---Há mais de uma face na imagem {}".format(arquivo))
-                exit(0)
-            elif qtd_faces_detectadas < 1:
-                print("---Nenhuma face encontrada no arquivo {}".format(arquivo))
-                exit(0)
+    #         if qtd_faces_detectadas > 1:
+    #             print("---Há mais de uma face na imagem {}".format(arquivo))
+    #             exit(0)
+    #         elif qtd_faces_detectadas < 1:
+    #             print("---Nenhuma face encontrada no arquivo {}".format(arquivo))
+    #             exit(0)
 
-            for face in faces_detectadas:
-                pontos_faciais = self.detector_pontos(imagem, face)
+    #         for face in faces_detectadas:
+    #             pontos_faciais = self.detector_pontos(imagem, face)
 
-                descritor_facial = self.reconhecimento_facial.compute_face_descriptor(imagem, pontos_faciais)
+    #             descritor_facial = self.reconhecimento_facial.compute_face_descriptor(imagem, pontos_faciais)
 
-                lista_descritor_facial = [df for df in descritor_facial]
-                np_array_descritor_facial = np.asarray(lista_descritor_facial, dtype=np.float64)
-                np_array_descritor_facial = np_array_descritor_facial[np.newaxis, :]
+    #             lista_descritor_facial = [df for df in descritor_facial]
+    #             np_array_descritor_facial = np.asarray(lista_descritor_facial, dtype=np.float64)
+    #             np_array_descritor_facial = np_array_descritor_facial[np.newaxis, :]
 
-                if self.descritores_faciais is None:
-                    self.descritores_faciais = np_array_descritor_facial
-                else:
-                    self.descritores_faciais = np.concatenate((self.descritores_faciais, np_array_descritor_facial), axis=0)
+    #             if self.descritores_faciais is None:
+    #                 self.descritores_faciais = np_array_descritor_facial
+    #             else:
+    #                 self.descritores_faciais = np.concatenate((self.descritores_faciais, np_array_descritor_facial), axis=0)
 
-        np.save("{}{}/treinamento/descritores.npy".format(consts.DIR_USU, id_usu), self.descritores_faciais)
+    #     np.save("{}{}/treinamento/descritores.npy".format(consts.DIR_USU, id_usu), self.descritores_faciais)
 
     def treinar_evento(self, id_eve):
 

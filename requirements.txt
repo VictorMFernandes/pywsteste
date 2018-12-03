@@ -1,6 +1,6 @@
 Flask
 Flask-RESTful
-cmake
-Pillow
-dlib
+Flask-JWT
+Flask-SQLAlchemy
 uwsgi
+psycopg2

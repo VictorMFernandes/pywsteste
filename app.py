@@ -27,9 +27,9 @@ api.add_resource(StoreList, '/stores')
 
 api.add_resource(UserRegister, '/register')
 
-@app.route('/teste', methods=['POST'])
-def testar():
-    resposta = "oi, meu teste"
+@app.route('/teste/<string:teste>', methods=['POST'])
+def testar(teste):
+    resposta = teste
     return resposta, 201
 
 if __name__ == '__main__':

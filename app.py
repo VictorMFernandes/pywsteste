@@ -1,6 +1,6 @@
-import os
+from flask import Flask, jsonify, request, abort
 
-from flask import Flask, jsonify, request
+import os
 
 from security import authenticate, identity
 from resources.user import UserRegister
@@ -10,6 +10,21 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 
 app.config['DEBUG'] = True
+
+@app.route("/usuario", methods=["POST"])
+def criar_usuario():
+    if not request.json or not 'nome' in request.json:
+        abort(400)
+
+    usuario = {
+        "nome": request.json["nome"],
+        "fotos": request.json["fotos"]
+    }
+
+    # usu = Usuario(usuario)
+
+    resposta = jsonify({"task": usuario})
+    return resposta, 201
 
 @app.route('/teste', methods=['POST'])
 def testar():

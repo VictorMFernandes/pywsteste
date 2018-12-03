@@ -9,7 +9,7 @@
 
 # import classes.constantes as consts
 
-class Detector_Face:
+class DetectorFace:
     
     def teste(self):
         print("teste")

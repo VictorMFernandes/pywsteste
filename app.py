@@ -3,8 +3,7 @@ from flask import Flask, jsonify, request, abort
 import os
 
 import classes.constantes as consts
-from classes.usuario import Usuario
-from classes.detector_face import Detector_Face
+from classes.detector_face import DetectorFace
 
 app = Flask(__name__)
 

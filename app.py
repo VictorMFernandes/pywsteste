@@ -13,8 +13,6 @@ app = Flask(__name__)
 
 app.config['DEBUG'] = True
 
-api = Api(app)
-
 @app.route('/teste', methods=['POST'])
 def testar():
     request_data = request.get_json()

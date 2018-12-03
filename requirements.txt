@@ -8,3 +8,4 @@ CMake
 opencv-python
 dlib
 Pillow
+opencv-contrib
